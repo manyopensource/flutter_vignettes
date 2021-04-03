@@ -14,14 +14,16 @@ class ParticleField with ChangeNotifier {
   // Creates the "delete" effect: red particles exploding from a horizontal line
   void lineExplosion(x, y, w, [count = 150]) {
     for (int i = 0; i < count; i++) {
-      particles.add(Particle(
+      particles.add(
+        Particle(
           x: x + i / count * w, // evenly spaced along the line
           y: y,
           vx: Random().nextDouble() * 5.0 - 5.0,
           vy: Random().nextDouble() * 3.0 - 2.5,
           life: Random().nextDouble() * 0.5 + 0.5,
-          color: Color(0xffcb4a65).withOpacity(i.isEven ? 0.8 : 0.3)
-          ));
+          color: Color(0xffcb4a65).withOpacity(i.isEven ? 0.8 : 0.3),
+        ),
+      );
     }
   }
 
@@ -30,14 +32,16 @@ class ParticleField with ChangeNotifier {
     for (int i = 0; i < count; i++) {
       double rot = i / count * pi * 2; // angle to apply velocity
       double vel = Random().nextDouble() * 2 + .5;
-      particles.add(Particle(
+      particles.add(
+        Particle(
           x: x + 18 * cos(rot),
           y: y + 18 * sin(rot),
           vx: cos(rot) * vel,
           vy: sin(rot) * vel,
           life: Random().nextDouble() * 0.5 + 0.5,
-          color: Color(0xff54d8e6).withOpacity(i.isEven ? 0.8 : 0.3)
-          ));
+          color: Color(0xff54d8e6).withOpacity(i.isEven ? 0.8 : 0.3),
+        ),
+      );
     }
   }
 
